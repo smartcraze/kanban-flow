@@ -5,10 +5,10 @@ import (
 	"github.com/smartcraze/kanban-flow/internal/handlers"
 )
 
-func UserRoutes(router *gin.Engine) {
-	userGroup := router.Group("/users")
+func AuthRoutes(router *gin.Engine) {
+	auth := router.Group("/api/auth")
 	{
-		userGroup.POST("/", handlers.CreateUser)
-		userGroup.GET("/", handlers.GetUsers)
+		auth.POST("/register", handlers.RegisterUser)
+		auth.POST("/login", handlers.LoginUser)
 	}
 }
