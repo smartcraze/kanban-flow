@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: kanban_db
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: suraj
+      POSTGRES_PASSWORD: suraj123
+      POSTGRES_DB: kanban_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:
+    driver: local
