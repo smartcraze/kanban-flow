@@ -34,8 +34,9 @@ func main() {
 		c.JSON(200, gin.H{
 			"message": "Welcome to Kanban Flow API"})
 	})
-	//user routes
+
 	routes.AuthRoutes(app)
+
 	app.Run(":8000")
 
 }
