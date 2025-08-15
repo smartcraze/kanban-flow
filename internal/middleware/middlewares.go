@@ -36,7 +36,9 @@ func AuthRequired() gin.HandlerFunc {
 
 		// Store user claims in context
 		if claims, ok := token.Claims.(jwt.MapClaims); ok {
-			c.Set("user_id", claims["user_id"])
+			if uid, ok := claims["user_id"].(float64); ok {
+				c.Set("userID", uint(uid)) // store directly as uint
+			}
 			c.Set("email", claims["email"])
 		}
 
